@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        body{
+            background-color: var(--white_color);
+        }      
+    </style>
+</head>
+<body>
+    <div class="body">
+    <h1 style="color:var(--black_color)">dark theme</h1>
+    <p style="color: var(--black_color);">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, nesciunt.</p>
+    <button id="zdark">dark</button>
+    </div>
+    <script>
+         const root = document.querySelector(":root");
+
+         const zdark = document.getElementById("zdark");
+         zdark.addEventListener('click',darkmode)
+
+         if (localStorage.getItem('mode') == "dark") {
+            zdark.innerText = "light";
+            root.style.setProperty('--black_color','white')
+            root.style.setProperty('--white_color','black')
+            localStorage.setItem('mode','dark')
+         }else{
+            zdark.innerText = "dark";
+            root.style.setProperty('--black_color','black')
+            root.style.setProperty('--white_color','white')
+            localStorage.setItem('mode','light')
+         }
+         function darkmode() {
+            if (this.innerText == "dark") {
+            this.innerText = "light";
+            root.style.setProperty('--black_color','white')
+            root.style.setProperty('--white_color','black')
+            localStorage.setItem('mode','dark')
+         }else{
+            this.innerText = "dark";
+            root.style.setProperty('--black_color','black')
+            root.style.setProperty('--white_color','white')
+            localStorage.setItem('mode','light')
+         }
+    }
+    </script>
+</body>
+</html>
